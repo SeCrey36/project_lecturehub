@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}LectureHub{% endblock %}
+{% block content %}
+    <div class="container">
+        <main>
+            <h1>Добро пожаловать в <strong>LectureHub</strong>!</h1>
+            <p>Универсальная платформа для обмена знаниями и лекциями.</p>
+            <p>Здесь вы можете не только создавать, сохранять и редактировать лекции в 
+                удобном WYSIWYG-редакторе, но и делиться ими с другими студентами!</p>
+            <p>Откройте для себя новые возможности в учебе:</p>
+            <div class="highlight-box">
+                <p><strong>Откройте для себя новые возможности в учебе:</strong></p>
+                <ul>
+                    <li>Создавайте лекции в формате, который вам удобен.</li>
+                    <li>Редактируйте и дополняйте материалы в реальном времени.</li>
+                    <li>Обменивайтесь идеями и знаниями с коллегами и одногруппниками.</li>
+                </ul>
+            </div>
+            <p>Присоединяйтесь к сообществу LectureHub и станьте его частью прямо сейчас!</p>
+            <br>
+            <p>Также предлагаем посмотреть видео-туториал по использованию данного сервиса:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ДОБАВИТЬ_ОБУЧЕНИЕ" frameborder="0" allowfullscreen></iframe>
+        </main>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        {% if form.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                Ваш никнейм или пароль не подходят! Попробуйте еще раз.
+                            </div>
+                        {% endif %}
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Log-in</button>
+                            <p class="card-reg">Нет аккаунта? <a href="{% url 'register' %}" class="btn btn-link">Регистрация!</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

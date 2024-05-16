@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Edit profile{% endblock %}
+
+{% block content %}
+    <h1>Редактирование профиля</h1>
+    <h2>Смена никнейма:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ username_form.as_p }}
+        <button type="submit" name="change_username">Изменить никнейм</button>
+    </form>
+
+    <h2>Смена пароля:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ password_form.as_p }}
+        <button type="submit" name="change_password">Изменить пароль</button>
+    </form>
+{% endblock %}

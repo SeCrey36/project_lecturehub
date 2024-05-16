@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+}
+
+.highlight-box {
+  background-color: #73a6ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+nav {
+  background-color: #f2f2f2;
+  min-width: 200px;
+  width: 25%;
+  padding: 20px;
+  border-right: 5px solid #333;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* КНОПКИ НАВБАРА */
+.user-buttons {
+  display: flex;
+  align-items: center;
+}
+.log-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(255, 88, 219);
+  color: #FFFFFF; /* Белый цвет текста */
+  border-radius: 20px; /* Радиус скругления */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 10px; /* Отступ между кнопками */
+  cursor: pointer; /* Изменение курсора на "палец" */
+}
+.log-button:hover {
+  background-color: #FFC0CB; /* Изменение цвета при наведении курсора */
+}
+
+.logo-href {
+  text-decoration: none;
+  color: white;
+}
+
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.logout-form {
+  background-color: #333;
+}
+
+/* Стили для карточки */
+.card {
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+/* Стили для заголовка */
+.card-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Стили для сообщения об ошибке */
+.alert-danger {
+  margin-bottom: 20px;
+}
+
+/* Стили для формы */
+form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px #333;
+  background-color: #f9f9f9;
+}
+
+/* Стили для кнопки входа */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для ссылки на регистрацию */
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.card-reg{
+  text-align: center;
+}

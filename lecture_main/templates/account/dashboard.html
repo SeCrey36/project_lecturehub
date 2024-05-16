@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LectureHub{% endblock %}
+
+{% block content %}
+    <h1>Работа над лекцией:</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+
+
+
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script> <!-- подключаем инициализацию CKEditor -->
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script> <!-- подключаем CKEditor -->
+    <script>
+        CKEDITOR.replace('id_content');  // инициализируем CKEditor на элементе с id_content
+    </script>
+{% endblock %}

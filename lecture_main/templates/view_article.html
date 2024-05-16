@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LectureHub{% endblock %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'ckeditor/ckeditor.css' %}">
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script> <!-- подключаем инициализацию CKEditor -->
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script> <!-- подключаем CKEditor -->
+
+    {% if request.user == article.author %}
+    <h1>Edit Note</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить!</button>
+    </form>
+    <script>
+        CKEDITOR.replace('id_content');
+    </script>
+    {% endif %}
+    
+
+
+    
+    <h1>{{ article.title }}</h1>
+    {{ article.created_at }} by {{ article.author }}
+
+    <!-- Отображение содержимого документа в виде HTML -->
+    <div id="document-content">
+        {{ article.content|safe }}
+    </div>
+
+    
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script> <!-- подключаем инициализацию CKEditor -->
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script> <!-- подключаем CKEditor -->
+    <script>
+        CKEDITOR.replace('id_content');  // инициализируем CKEditor на элементе с id_content
+    </script>
+
+{% endblock %}

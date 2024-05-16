@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+    <link href="{% static 'lecture_main/base.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <span class="logo"><a href="{% url 'dashboard' %}" class="logo-href"><h1>LectureHub</h1></a></span>
+      <span class="user-buttons">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'edit_user' %}" class="log-button">Edit User Info</a>
+          <form class="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="log-button" type="submit">Logout</button>
+          </form>
+        {% else %}
+          <a href="{% url 'login' %}" class="log-button">Log-in</a>
+        {% endif %}
+      </span>
+    </header>
+
+    <div class="container">
+      <nav>
+        {% if request.user.is_authenticated %}
+          {% if links %}
+            <p>Список твоих лекций:</p>
+            {% for link in links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          {% else %}
+            <p>Здесь будет список твоих лекций</p>
+          {% endif %}
+        {% else %}
+          <p>Здесь будет список твоих лекций</p>
+        {% endif %}
+      </nav>
+
+      <main>
+        {% block content %}
+
+        {% endblock %}
+      </main>
+    </div>
+
+    <footer>
+      <p>by secrey, 2024</p>
+    </footer>
+  </body>
+</html>
